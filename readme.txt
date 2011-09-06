@@ -14,11 +14,11 @@ Turbo charge your posts admin for any custom post type with sortable filters and
 
 This is a tool for developers who want to turbo-charge their custom post type listings with metadata, taxonomies, and more. An intuitive interface for adding (and saving) complex filtersets is provided, along with a drag-and-drop interface for choosing and ordering columns to be displayed. Metaboxes are also automatically generated for all your metadata-entry needs.
 
-* Add columns to the post editor list
-* Filter posts in editor by custom criteria
-* Add metaboxes such that they can be filtered in the post admin
-* Add custom taxonomies to the filters
-* Sort by custom rows
+* Add columns to the post listing view
+* Filter post listings by custom criteria
+* Easily add metaboxes to custom post types
+* Automatically add registered taxonomies to post listings
+* Sort by post metadata
 
 See docs/documentation.html in the plugin directory for full documentation.
 
