@@ -173,7 +173,6 @@ class Tribe_APM {
 		
 		// Inline save?
 		if ( defined( 'DOING_AJAX') && DOING_AJAX && isset($_POST['screen']) && $desired_screen === $_POST['screen'] ) {
-			$this->log("boom");
 			return true;
 		}
 
