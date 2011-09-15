@@ -99,20 +99,16 @@ a.tribe-row-add:hover, a.tribe-row-add:focus {
 
 /* Hide List UI that we don't want */
 .tribe-hidden,
-.tribe-filters-active .edit-php select[name=m],
-.tribe-filters-active .edit-php #post-query-submit,
-.tribe-filters-active .view-switch, 
-.tribe-filters-active .tablenav .actions,
-.tribe-filters-active .subsubsub .count,
-.tribe-filters-active .search-box,
-.tribe-filters-active #adv-settings h5:first-child,
-.tribe-filters-active .metabox-prefs
+.tribe-filters-active select[name=m],
+.tribe-filters-active #post-query-submit,
+.tribe-filters-active .metabox-prefs,
+.tribe-filters-active .metabox-prefs + h5
 {
 	display:none;
 }
-.tribe-filters-active .subsubsub {
+.tribe-filters-active .search-box {
 	position:relative;
-	top:32px;
+	top:5px;
 }
 .tribe-filters-active .sorting-indicator {
 	display:block;
@@ -121,9 +117,6 @@ a.tribe-row-add:hover, a.tribe-row-add:focus {
 .tribe-filters-active a:hover .sorting-indicator,
 .tribe-filters-active .sorted .sorting-indicator  {
 	visibility:visible;
-}
-.tribe-filters-active h2 + #tribe-filters > .postbox {
-	margin-bottom:-24px;
 }
 .tribe-filters-active .widefat thead th {
 	vertical-align:top;

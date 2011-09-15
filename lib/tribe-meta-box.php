@@ -324,7 +324,7 @@ class Tribe_Meta_Box {
 
 	function show_field_checkbox($field, $meta) {
 		$this->show_field_begin($field, $meta);
-		echo "<input type='checkbox' class='tribe-checkbox' name='{$field['meta']}' id='{$field['meta']}'" . checked(!empty($meta), true, false) . " /> {$field['desc']}</td>";
+		echo "<label><input type='checkbox' class='tribe-checkbox' name='{$field['meta']}' id='{$field['meta']}'" . checked(!empty($meta), true, false) . " /> {$field['desc']}</label></td>";
 	}
 
 	function show_field_wysiwyg($field, $meta) {
@@ -339,7 +339,9 @@ class Tribe_Meta_Box {
 		if (!is_array($meta)) $meta = (array) $meta;
 
 		$this->show_field_begin($field, $meta);
-		echo "{$field['desc']}<br />";
+		if ( isset($field['desc']) ) {
+			echo "<p class='description'>{$field['desc']}</p>";
+		}
 
 		if (!empty($meta)) {
 			$nonce = wp_create_nonce('tribe_ajax_delete');
@@ -356,7 +358,7 @@ class Tribe_Meta_Box {
 		echo "<div style='clear: both'><strong>" . __('Upload new files') . "</strong></div>
 			<div class='new-files'>
 				<div class='file-input'><input type='file' name='{$field['meta']}[]' /></div>
-				<a class='tribe-add-file' href='#'>" . __('Add more file') . "</a>
+				<a class='tribe-add-file' href='#'>" . __('Add another file') . "</a>
 			</div>
 		</td>";
 	}
@@ -367,7 +369,9 @@ class Tribe_Meta_Box {
 		if (!is_array($meta)) $meta = (array) $meta;
 
 		$this->show_field_begin($field, $meta);
-		echo "{$field['desc']}<br />";
+		if ( isset($field['desc']) ) {
+			echo "<p class='description'>{$field['desc']}</p>";
+		}
 
 		$nonce_delete = wp_create_nonce('tribe_ajax_delete');
 		$nonce_sort = wp_create_nonce('tribe_ajax_reorder');
@@ -398,6 +402,7 @@ class Tribe_Meta_Box {
 		echo '</ul>';
 
 		echo "<a href='#' class='tribe-upload-button button' rel='{$post->ID}|{$field['meta']}'>" . __('Add more images') . "</a>";
+		echo '</td>';
 	}
 
 	function show_field_color($field, $meta) {

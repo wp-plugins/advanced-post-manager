@@ -2,7 +2,7 @@
 /*
  Plugin Name:  Advanced Post Manager
  Description:  Dialing custom post types to 11 with advanced filtering controls.
- Version: 1.0
+ Version: 1.0.1
  Author: Modern Tribe, Inc.
  Author URI: http://tri.be/
  Text Domain: tribe-apm
@@ -114,7 +114,7 @@ class Tribe_APM {
 	public function maybe_enqueue($blah) {
 		if ( $this->is_active() ) {
 			wp_enqueue_script( 'tribe-fac', $this->url . '/resources/tribe-apm.js', array('jquery') );
-			wp_enqueue_style( 'tribe-fac', $this->url . '/resources/tribe-filters.css' );
+			wp_enqueue_style( 'tribe-fac', $this->url . '/resources/tribe-apm.css' );
 		}
 	}
 
