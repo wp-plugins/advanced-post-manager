@@ -635,7 +635,7 @@ class Tribe_Filters {
 		$option_rows = array();
 
 		foreach ( $this->filters as $k => $v ) {
-			$templates[$k] = $this->table_row($k,$v);
+			$templates[$k] = $this->table_row($k, '');
 			$option_rows[$k] = $this->dropdown_row($k,$v);
 		}
 
