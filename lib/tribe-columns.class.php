@@ -128,7 +128,10 @@ class Tribe_Columns {
 		<select name="tribe-cols-drop" id="tribe-cols-drop"><?php
 			echo '<option value="0">'. __('Add a Column', $this->textdomain).'</option>';
 			foreach ( $inactive as $key => $value ) {
-				$name = ( is_string($value) ) ? $value : $value['name']; 
+				$name = ( is_string($value) ) ? $value : $value['name'];
+				if ( empty($name) ) {
+					continue;
+				}
 				echo '<option value="'.$key.'">'.$name.'</option>';
 			}
 		?></select>
@@ -223,12 +226,8 @@ class Tribe_Columns {
 		if ( empty($this->active) ) {
 			$this->active = array_keys( $this->get_column_headers() );
 		}
-
 		// make sure there are no strays
-/*		foreach ( $this->active as $k => $v ) {
-			if ( ! array_key_exists($v, $this->columns) )
-				unset( $this->active[$k] );
-		}*/
+		$this->sweep_empties();
 	}
 
 	public function save_active() {
@@ -321,6 +320,14 @@ class Tribe_Columns {
 
 
 	// UTLITIES AND INTERNAL METHODS
+	
+	protected function sweep_empties() {
+		foreach ( $this->active as $k => $v ) {
+			if ( ! array_key_exists($v, $this->columns) ) {
+				unset( $this->active[$k] );
+			}
+		}
+	}
 
 	private function get_column_headers($omit_checkbox = true) {
 		if ( ! empty( $this->column_headers) ) {
