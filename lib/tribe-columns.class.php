@@ -116,6 +116,9 @@ class Tribe_Columns {
 	public function output_form() {
 		wp_nonce_field($this->nonce, $this->nonce, false);
 		$headers = $this->get_column_headers();
+mlog($headers);
+		// make sure there are no strays
+		$this->sweep_empties();
 
 		// key 'em up
 		$active = array();
@@ -226,8 +229,6 @@ class Tribe_Columns {
 		if ( empty($this->active) ) {
 			$this->active = array_keys( $this->get_column_headers() );
 		}
-		// make sure there are no strays
-		$this->sweep_empties();
 	}
 
 	public function save_active() {
@@ -322,8 +323,9 @@ class Tribe_Columns {
 	// UTLITIES AND INTERNAL METHODS
 	
 	protected function sweep_empties() {
-		foreach ( $this->active as $k => $v ) {
-			if ( ! array_key_exists($v, $this->columns) ) {
+		$headers = $this->get_column_headers();
+		foreach ( $headers as $k => $v ) {
+			if ( empty($v) ) {
 				unset( $this->active[$k] );
 			}
 		}
