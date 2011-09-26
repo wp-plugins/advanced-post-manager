@@ -199,6 +199,7 @@ a.tribe-row-add:hover, a.tribe-row-add:focus {
 #tribe-filters-active select, #tribe-filters-active input {
 	margin-left:6px;
 	vertical-align:top;
+	max-width:195px;
 }
 #tribe-filters-active input {
 	width:12em;

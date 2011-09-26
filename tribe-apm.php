@@ -2,7 +2,7 @@
 /*
  Plugin Name:  Advanced Post Manager
  Description:  Dialing custom post types to 11 with advanced filtering controls.
- Version: 1.0.3
+ Version: 1.0.4
  Author: Modern Tribe, Inc.
  Author URI: http://tri.be/
  Text Domain: tribe-apm
@@ -40,6 +40,7 @@ class Tribe_APM {
 		$this->args = $args;
 		$this->metaboxes = $metaboxes;
 
+		$this->textdomain = apply_filters( 'tribe_apm_textdomain', $this->textdomain );
 		$this->url = home_url( str_replace( ABSPATH, '', dirname(__FILE__) ) );
 
 		add_action( 'admin_init', array($this, 'init'), 0 );

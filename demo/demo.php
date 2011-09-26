@@ -9,8 +9,10 @@
 class Tribe_Demo_APM {
 	
 	private $post_type = 'tribe_movie';
+	private $textdomain = 'tribe-apm';
 	
 	public function __construct() {
+		$this->textdomain = apply_filters( 'tribe_apm_textdomain', $this->textdomain );
 		add_action( 'init', array($this, 'test_filters') );
 		add_action( 'admin_notices', array($this, 'notice') );
 	}
@@ -26,7 +28,7 @@ class Tribe_Demo_APM {
 			$url = home_url($path) . '/demo_data.xml';
 			$import_url = admin_url('import.php');
 			echo '<div id="messsage" class="updated"><p>';
-			printf( __('It looks like you might not have any demo data. <a href="%s">Download our data</a> and use the <a href="%s">WordPress Importer</a>.', 'tribe-apm'), $url, $import_url );
+			printf( __('It looks like you might not have any demo data. <a href="%s">Download our data</a> and use the <a href="%s">WordPress Importer</a>.', $this->textdomain), $url, $import_url );
 			echo '</p></div>';
 		}
 	}

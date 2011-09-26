@@ -4,8 +4,8 @@ do_action('tribe-filters-box');
  ?>
 <div id="tribe-filters" class="metabox-holder meta-box-sortables">
 <div id="filters-wrap" class="postbox">
-	<div class="handlediv" title="<?php _e('Click to toggle') ?>"></div>
-	<h3 title="<?php _e('Click to toggle') ?>"><?php _e('Filters &amp; Columns', $this->textdomain ); ?></h3>
+	<div class="handlediv" title="<?php _e('Click to toggle', $this->textdomain) ?>"></div>
+	<h3 title="<?php _e('Click to toggle', $this->textdomain) ?>"><?php _e('Filters &amp; Columns', $this->textdomain ); ?></h3>
 	<form id="the-filters" action="<?php echo $action_url; ?>" method="post">
 		<div class="alignleft filters">
 			<?php $this->filters->output_form(); ?>

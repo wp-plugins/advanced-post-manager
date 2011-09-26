@@ -87,7 +87,8 @@ class Tribe_Filters {
 	public function __construct( $post_type, $filters = array() ) {
 		$this->filtered_post_type = $post_type;
 		$this->set_filters( $filters );
-
+		
+		$this->textdomain = apply_filters( 'tribe_apm_textdomain', $this->textdomain );
 		$this->url = trailingslashit( plugins_url( '', __FILE__ ) );
 		$this->add_actions_and_filters();
 

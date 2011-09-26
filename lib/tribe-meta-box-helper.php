@@ -24,6 +24,7 @@ class Tribe_Meta_Box_Helper {
 		$this->fields = $this->fill_filter_vars($fields);
 		$this->metaboxes = $metaboxes;
 		$this->create_meta_boxes();
+		$this->textdomain = apply_filters( 'tribe_apm_textdomain', $this->textdomain );
 	}
 	
 	// HELPERS AND UTITLIES

@@ -43,9 +43,9 @@ class Tribe_Columns {
 	 **/
 
 	public function __construct( $post_type, $columns = array(), $active = array(), $fallback = array() ) {
-
 		$this->nonce .= $post_type; // keep it tidy
 		$this->user_meta .= $post_type;
+		$this->textdomain = apply_filters( 'tribe_apm_textdomain', $this->textdomain );
 
 		$this->post_type = $post_type;
 		$this->set_active($active);

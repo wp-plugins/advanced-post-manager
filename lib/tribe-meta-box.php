@@ -22,12 +22,16 @@ class Tribe_Meta_Box {
 
 	protected $_meta_box;
 	protected $_fields;
+	protected $textdomain = 'tribe-apm';
 
 	// Create meta box based on given data
 	public function __construct($meta_box) {
 		// run script only in admin area
 		if (!is_admin()) return;
-
+		
+		// overrideable textdomain
+		$this->textdomain = apply_filters( 'tribe_apm_textdomain', $this->textdomain );
+		
 		// assign meta box values to local variables and add it's missed values
 		$this->_meta_box = $meta_box;
 		// Cast pages to array
@@ -121,7 +125,7 @@ class Tribe_Meta_Box {
 
 			$li = "<li id='item_$attachment_id'>";
 			$li .= "<img src='{$attachment['url']}' />";
-			$li .= "<a title='" . __('Delete this image') . "' class='tribe-delete-file' href='#' rel='$nonce|$post_id|$id|$attachment_id'>" . __('Delete') . "</a>";
+			$li .= "<a title='" . __('Delete this image', $this->textdomain) . "' class='tribe-delete-file' href='#' rel='$nonce|$post_id|$id|$attachment_id'>" . __('Delete', $this->textdomain) . "</a>";
 			$li .= "<input type='hidden' name='{$id}[]' value='$attachment_id' />";
 			$li .= "</li>";
 			$html .= $li;
@@ -345,20 +349,20 @@ class Tribe_Meta_Box {
 
 		if (!empty($meta)) {
 			$nonce = wp_create_nonce('tribe_ajax_delete');
-			echo '<div style="margin-bottom: 10px"><strong>' . __('Uploaded files') . '</strong></div>';
+			echo '<div style="margin-bottom: 10px"><strong>' . __('Uploaded files', $this->textdomain) . '</strong></div>';
 			echo '<ol class="tribe-upload">';
 			foreach ($meta as $att) {
 				// if (wp_attachment_is_image($att)) continue; // what's image uploader for?
-				echo "<li>" . wp_get_attachment_link($att, '' , false, false, ' ') . " (<a class='tribe-delete-file' href='#' rel='$nonce|{$post->ID}|{$field['meta']}|$att'>" . __('Delete') . "</a>)</li>";
+				echo "<li>" . wp_get_attachment_link($att, '' , false, false, ' ') . " (<a class='tribe-delete-file' href='#' rel='$nonce|{$post->ID}|{$field['meta']}|$att'>" . __('Delete', $this->textdomain) . "</a>)</li>";
 			}
 			echo '</ol>';
 		}
 
 		// show form upload
-		echo "<div style='clear: both'><strong>" . __('Upload new files') . "</strong></div>
+		echo "<div style='clear: both'><strong>" . __('Upload new files', $this->textdomain) . "</strong></div>
 			<div class='new-files'>
 				<div class='file-input'><input type='file' name='{$field['meta']}[]' /></div>
-				<a class='tribe-add-file' href='#'>" . __('Add another file') . "</a>
+				<a class='tribe-add-file' href='#'>" . __('Add another file', $this->textdomain) . "</a>
 			</div>
 		</td>";
 	}
@@ -394,14 +398,14 @@ class Tribe_Meta_Box {
 
 				echo "<li id='item_$image'>
 						<img src='$src' />
-						<a title='" . __('Delete this image') . "' class='tribe-delete-file' href='#' rel='$nonce_delete|{$post->ID}|{$field['meta']}|$image'>" . __('Delete') . "</a>
+						<a title='" . __('Delete this image', $this->textdomain) . "' class='tribe-delete-file' href='#' rel='$nonce_delete|{$post->ID}|{$field['meta']}|$image'>" . __('Delete', $this->textdomain) . "</a>
 						<input type='hidden' name='{$field['meta']}[]' value='$image' />
 					</li>";
 			}
 		}
 		echo '</ul>';
 
-		echo "<a href='#' class='tribe-upload-button button' rel='{$post->ID}|{$field['meta']}'>" . __('Add more images') . "</a>";
+		echo "<a href='#' class='tribe-upload-button button' rel='{$post->ID}|{$field['meta']}'>" . __('Add more images', $this->textdomain) . "</a>";
 		echo '</td>';
 	}
 
@@ -409,7 +413,7 @@ class Tribe_Meta_Box {
 		if (empty($meta)) $meta = '#';
 		$this->show_field_begin($field, $meta);
 		echo "<input class='tribe-color' type='text' name='{$field['meta']}' id='{$field['meta']}' value='$meta' size='8' />
-			  <a href='#' class='tribe-color-select' rel='{$field['meta']}'>" . __('Select a color') . "</a>
+			  <a href='#' class='tribe-color-select' rel='{$field['meta']}'>" . __('Select a color', $this->textdomain) . "</a>
 			  <div style='display:none' class='tribe-color-picker' rel='{$field['meta']}'></div>";
 		$this->show_field_end($field, $meta);
 	}
