@@ -116,7 +116,7 @@ class Tribe_Columns {
 	public function output_form() {
 		wp_nonce_field($this->nonce, $this->nonce, false);
 		$headers = $this->get_column_headers();
-mlog($headers);
+
 		// make sure there are no strays
 		$this->sweep_empties();
 

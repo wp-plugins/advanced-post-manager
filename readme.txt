@@ -44,6 +44,7 @@ This plugin is for developers. Nothing will happen until you write some code to 
 
 * CSS tweak for long select/input fields in filters
 * More thorough gettext, including filterable textdomain
+* Fix column bug introduced in 1.0.3
 
 = 1.0.3 =
 
