@@ -232,8 +232,7 @@ class Tribe_Columns {
 	}
 
 	public function save_active() {
-
-		if ( ! wp_verify_nonce( $_REQUEST[$this->nonce], $this->nonce ) ) {
+		if ( ! isset($_REQUEST[$this->nonce]) || ! wp_verify_nonce( $_REQUEST[$this->nonce], $this->nonce ) ) {
 			return;
 		}
 
@@ -272,6 +271,7 @@ class Tribe_Columns {
 				$columns[$v] = $headers[$v];
 			}
 		}
+		do_action( 'tribe_apm_headers_' . $this->post_type, $columns );
 		return $columns;
 	}
 

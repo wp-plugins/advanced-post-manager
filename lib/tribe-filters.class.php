@@ -553,6 +553,7 @@ class Tribe_Filters {
 
 	protected function taxonomy_row($key, $value, $filter) {
 		$terms = get_terms($filter['taxonomy'], array('hide_empty' => 0) );
+		$value = array_merge( array('value' => 0), (array) $value );
 		$opts = array();
 		foreach ( $terms as $term ) {
 			$opts[$term->term_id] = $term->name;
@@ -564,6 +565,7 @@ class Tribe_Filters {
 		$ret = '';
 		$is_key = $this->is_pre . $key;
 		$val_key = $this->val_pre . $key;
+		$value = array_merge( array('value' => 0, 'query_option' => 0 ), (array) $value );
 
 		// We have explicit dropdown options.
 		if ( isset($filter['options']) && ! empty($filter['options']) ) {
@@ -584,8 +586,10 @@ class Tribe_Filters {
 	public function select_field($name, $options = null, $active = '', $allow_multi = false ) {
 
 		$is_multi = ( is_array($active) && count($active) > 1 ) ? true : false;
-		if ( ! $allow_multi )
+		if ( ! $allow_multi ) {
 			$class = 'no-multi';
+			$toggle = '';
+		}
 		else {
 			$class = ( $is_multi ) ? 'multi-active' : false;
 			$toggle = ( ! $class )
@@ -597,12 +601,8 @@ class Tribe_Filters {
 
 		// in case we only had a single value passed, we'll typecast to array to keep it DRY
 		$active = (array) $active;
-
-		if($options['type'] == 'text'){
-
-			$sel = '<input id="'. $name .'" name="'. $name .'" class="' . $class . '" value="'. $k .'" type="text"/>';
-		}
-		else if ( is_array($options) ) {
+		$sel = '';
+		if ( is_array($options) ) {
 			$sel .= '<select id="'. $name .'" name="'. $name .'" class="' . $class . '"' . $multi . '>';
 
 			foreach ( $options as $k => $v ) {
