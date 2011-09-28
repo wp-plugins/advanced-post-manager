@@ -189,7 +189,11 @@ class Tribe_APM {
 				return false;
 			}
 		}
-		return $desired_screen === $screen->id;
+		if (is_object($screen)) {
+			return $desired_screen === $screen->id;
+		} else {
+			return false;
+		}
 	}
 
 	public function log($data) {
