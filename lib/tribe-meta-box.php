@@ -14,7 +14,7 @@
  *
  * @license GNU General Public License v2.0
  */
-
+if ( ! class_exists( 'Tribe_Meta_Box' ) ) {
 /**
  * Meta Box class
  */
@@ -717,3 +717,4 @@ class Tribe_Meta_Box {
 	/******************** END HELPER FUNCTIONS **********************/
 }
 
+} // end if class_exists()

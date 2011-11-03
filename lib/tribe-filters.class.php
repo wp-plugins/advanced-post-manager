@@ -7,6 +7,8 @@
  * @author Matt Wiebe
  **/
 
+if ( ! class_exists( 'Tribe_Filters' ) ) {
+
 class Tribe_Filters {
 
 	const FILTER_POST_TYPE = 'tribe_filters'; // for storing filtersets.
@@ -731,3 +733,5 @@ class Tribe_Filters {
 		return false;
 	}
 }
+
+} // end if class_exists()

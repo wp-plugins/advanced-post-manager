@@ -6,6 +6,7 @@
  *
  */
 
+if ( ! class_exists( 'Tribe_Columns' ) ) {
 
 class Tribe_Columns {
 
@@ -437,3 +438,5 @@ class Tribe_Columns {
 			return false;
 	}
 }
+
+} // end if class_exists()

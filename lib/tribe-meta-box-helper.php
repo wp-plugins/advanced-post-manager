@@ -4,6 +4,9 @@
  * Accepts a standard set of APM args and automagically creates meta boxes
  *
  */
+
+if ( ! class_exists( 'Tribe_Meta_Box_Helper' ) ) {
+
 class Tribe_Meta_Box_Helper {
 	
 	const PREFIX = 'tribe_';
@@ -115,3 +118,5 @@ class Tribe_Meta_Box_Helper {
 	}
 	
 }
+
+} // end if class_exists()
