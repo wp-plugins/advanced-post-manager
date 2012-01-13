@@ -4,9 +4,9 @@ Contributors: mattwiebe, peterchester, shanepearlman, produced by Modern Tribe, 
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8SKE66B7W76JY
 Tags: developer-tools, custom post, filter, column, metabox, taxonomy, wp-admin, admin, Post, post type, plugin, advanced, tribe
 Requires at least: 3.2
-Tested up to: 3.2.1
+Tested up to: 3.3.1
 License: GPL v2
-Stable Tag: 1.0.6
+Stable Tag: 1.0.7
 
 Turbo charge your posts admin for any custom post type with sortable filters and columns, and auto-registration of metaboxes.
 
@@ -39,6 +39,11 @@ This plugin is for developers. Nothing will happen until you write some code to 
 2. Automatically registered metaboxes for data entry
 
 == Changelog ==
+
+= 1.0.7 =
+
+* Fix for loading JS/CSS on Windows-based servers
+* Ensure the demo plugin checks that the main plugin is active to prevent white screens
 
 = 1.0.6 =
 

@@ -10,7 +10,7 @@
 
 if ( ! class_exists('Tribe_APM') ) {
 
-define( 'TRIBE_APM_PATH', trailingslashit( dirname(__FILE__) ) );
+define( 'TRIBE_APM_PATH', plugin_dir_path(__FILE__) );
 define( 'TRIBE_APM_LIB_PATH', TRIBE_APM_PATH . 'lib/' );
 
 class Tribe_APM {
@@ -41,7 +41,7 @@ class Tribe_APM {
 		$this->metaboxes = $metaboxes;
 
 		$this->textdomain = apply_filters( 'tribe_apm_textdomain', $this->textdomain );
-		$this->url = home_url( str_replace( ABSPATH, '', dirname(__FILE__) ) );
+		$this->url = apply_filters( 'tribe_apm_url', plugins_url('', __FILE__), __FILE__ );
 
 		add_action( 'admin_init', array($this, 'init'), 0 );
 		add_action( 'admin_init', array($this, 'init_meta_box') );

@@ -9,4 +9,5 @@
  Text Domain: tribe-apm
  */
 
-include 'demo/demo.php';
+if ( class_exists('Tribe_APM') )
+	include 'demo/demo.php';
