@@ -4,7 +4,7 @@
  Description:  Dialing custom post types to 11 with advanced filtering controls.
  Version: 1.0.7
  Author: Modern Tribe, Inc.
- Author URI: http://tri.be/
+ Author URI: http://tri.be
  Text Domain: tribe-apm
  */
 
