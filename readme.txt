@@ -1,12 +1,12 @@
 === Advanced Post Manager ===
 
-Contributors: ModernTribe, mattwiebe, peterchester, shanepearlman, produced by Modern Tribe, Inc.
+Contributors: ModernTribe, mattwiebe, jkudish, nickciske, peterchester, shanepearlman, produced by Modern Tribe, Inc.
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8SKE66B7W76JY
 Tags: developer-tools, custom post, filter, column, metabox, taxonomy, wp-admin, admin, Post, post type, plugin, advanced, tribe
 Requires at least: 3.2
-Tested up to: 3.3.1
+Tested up to: 3.4-alpha
 License: GPL v2
-Stable Tag: 1.0.7
+Stable Tag: 1.0.9
 
 Turbo charge your posts admin for any custom post type with sortable filters and columns, and auto-registration of metaboxes.
 
@@ -39,6 +39,14 @@ This plugin is for developers. Nothing will happen until you write some code to 
 2. Automatically registered metaboxes for data entry
 
 == Changelog ==
+
+= 1.0.9 =
+
+* Increase the version of the included demo plugin in order for it's update nag to go away
+
+= 1.0.8 =
+
+* Fix PHP notice regarding the $screen object
 
 = 1.0.7 =
 
