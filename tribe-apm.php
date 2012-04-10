@@ -2,7 +2,7 @@
 /*
  Plugin Name:  Advanced Post Manager
  Description:  Dialing custom post types to 11 with advanced filtering controls.
- Version: 1.0.7
+ Version: 1.0.9
  Author: Modern Tribe, Inc.
  Author URI: http://tri.be
  Text Domain: tribe-apm
