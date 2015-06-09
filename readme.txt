@@ -73,8 +73,6 @@ This plugin is for developers. Nothing will happen until you write some code to 
 
 == Changelog ==
 
-= [Unreleased] unreleased =
-
 = [3.10] 2015-06-09 =
 
 * Bug - fixed escaping throughout
